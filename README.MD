@@ -2,6 +2,13 @@
 
 有了这个，妈妈再也不用担心找不到vue文件可用的解析工具了（带忽略1px的）。
 
+# 安装
+
+```
+npm install postcss-plugin-for-vue-px2rem-ignore1px --save-dev
+    
+```
+
 
 # 使用说明。
 * 应用中,对字体大小不使用`rem`, rem的基准值与屏幕宽度成正比, 这就造成相同分辨率的屏幕,越宽字越大,越窄字越小,
@@ -15,17 +22,20 @@
 (注:https://github.com/songsiqi/px2rem 是按照注释来确定转不转rem和生成三种dpr的样式, 但是在webpack的production环境,会先执行uglify, 会造成注释被移除掉, 所以无法用注释来作为转与不转的标记 )
 
 in
-```css
+
+```
+ css
    .cls {
         width: 75px;
         font-size: 12dpx
         border: 1rpx
-   }
-
+   } 
 ```
 
 out
-```css
+
+```
+css
     .cls {
         width: 2rem;
         border: 1px;
@@ -33,4 +43,5 @@ out
     [data-dpr="1"] .cls { font-size: 12px }
     [data-dpr="2"] .cls { font-size: 24px }
     [data-dpr="3"] .cls { font-size: 36px }
+    
 ```

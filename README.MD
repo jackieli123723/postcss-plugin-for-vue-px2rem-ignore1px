@@ -8,7 +8,21 @@
 npm install postcss-plugin-for-vue-px2rem-ignore1px --save-dev
     
 ```
+# 配置
+`注意：` 这是个插件要配置到vue中
 
+```
+vue: {
+    loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
+    postcss: [
+      //配置在这里：
+      require('postcss-plugin-for-vue-px2rem-ignore1px')({
+        remUnit: 75
+      })
+    ]
+  }
+    
+```
 
 # 使用说明。
 * 应用中,对字体大小不使用`rem`, rem的基准值与屏幕宽度成正比, 这就造成相同分辨率的屏幕,越宽字越大,越窄字越小,
